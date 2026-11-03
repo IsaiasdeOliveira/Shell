@@ -1,4 +1,6 @@
 const std = @import("std");
+const parser = @import("parser");
+const executor = @import("executor");
 
 extern "c" fn read(
     fd: c_int,
@@ -98,35 +100,10 @@ fn executarBuiltin(comando: []const u8) !bool {
 
 fn executarExterno(
     io: std.Io,
-    allocator: std.mem.Allocator,
     comando: []const u8,
 ) !void {
-    // Lista dos argumentos do comando.
-    var argumentos: std.ArrayList([]const u8) = .empty;
-    defer argumentos.deinit(allocator);
-
-    // Separa o comando usando espacos como delimitadores.
-    var partes = std.mem.tokenizeAny(u8, comando, " \t\r");
-
-    while (partes.next()) |parte| {
-        try argumentos.append(allocator, parte);
-    }
-
-    // Nao executa comandos vazios.
-    if (argumentos.items.len == 0) {
-        return;
-    }
-
-    // Cria o processo filho.
-    var filho = try std.process.spawn(io, .{
-        .argv = argumentos.items,
-        .stdin = .inherit,
-        .stdout = .inherit,
-        .stderr = .inherit,
-    });
-
-    // Aguarda o termino do processo filho.
-    _ = try filho.wait(io);
+    const parsed = try parser.parse(comando);
+    try executor.executeExternal(io, &parsed);
 }
 
 pub fn main(init: std.process.Init) !void {
@@ -136,7 +113,9 @@ pub fn main(init: std.process.Init) !void {
     imprimir("Bem-vindo ao zigsh!\n");
 
     while (true) {
-        const cwd = getcwd(&diretorio, diretorio.len);
+    executor.reapBackground();    
+    
+    const cwd = getcwd(&diretorio, diretorio.len);
 
         imprimir("zigsh [");
 
@@ -178,7 +157,6 @@ pub fn main(init: std.process.Init) !void {
         if (!reconhecido) {
             executarExterno(
                 init.io,
-                init.gpa,
                 comando,
             ) catch |err| {
                 std.debug.print(
