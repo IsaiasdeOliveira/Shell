@@ -1,3 +1,15 @@
 /zigsh
 /.zig-cache/
 /zig-out/
+
+# Executavel compilado
+/zigsh
+
+# Cache e arquivos de compilacao
+/.zig-cache/
+/zig-out/
+
+# Arquivos gerados durante os testes
+/saida.txt
+/erros.log
+

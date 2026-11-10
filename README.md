@@ -8,27 +8,38 @@ Integrantes: Isaias Maia de Oliveira e Daniel Santos Baptista.
 
 O **zigsh** é um interpretador de comandos (shell) minimalista, desenvolvido em **Zig 0.16.0** para sistemas Linux.
 
-O projeto tem como objetivo aplicar conceitos de Sistemas Operacionais, incluindo:
+O projeto tem como objetivo aplicar conceitos fundamentais de Sistemas Operacionais, incluindo:
 
 - Gerenciamento e criação de processos.
 - Execução de comandos internos e externos.
 - Processos em primeiro e segundo plano.
-- Comunicação entre processos por pipelines (IPC).
+- Comunicação entre processos utilizando pipelines (IPC).
 - Redirecionamento de entrada, saída e erros.
 - Manipulação de arquivos e diretórios.
 
 ## 2. Tecnologias utilizadas
 
-- Linguagem: Zig 0.16.0
-- Sistema operacional: Linux (Ubuntu 26.04.1 LTS)
-- Ambiente de desenvolvimento: Visual Studio Code
-- Ambiente de execução: WSL 2
-- Controle de versão: Git e GitHub
+| Tecnologia | Utilização |
+|---|---|
+| Zig 0.16.0 | Linguagem de programação |
+| Ubuntu 26.04.1 LTS | Sistema operacional Linux |
+| WSL 2 | Ambiente Linux no Windows |
+| Visual Studio Code | Desenvolvimento |
+| Git e GitHub | Versionamento de código |
 
 ## 3. Estrutura do projeto
 
 ```text
 Shell/
+
+|── evidencias/
+│   ├── teste-a.png
+│   ├── teste-b.png
+│   ├── teste-c.png
+│   ├── teste-d.png
+│   ├── teste-e.png
+│   └── teste-f.png
+|   └── teste-parser.png
 ├── src/
 │   ├── main.zig
 │   ├── parser.zig
@@ -39,13 +50,15 @@ Shell/
 └── README.md
 ```
 
+A pasta `evidencias/` armazena as capturas de tela dos testes realizados no terminal Linux.
+
 ### Descrição dos arquivos
 
-**main.zig:** implementa o ciclo REPL, o prompt dinâmico, a leitura de comandos e os comandos internos.
+**main.zig:** responsável pelo ciclo REPL, prompt dinâmico, leitura de comandos e execução dos comandos internos.
 
-**parser.zig:** realiza a tokenização da entrada e identifica argumentos, aspas, redirecionamentos, pipelines e execução em segundo plano.
+**parser.zig:** realiza a tokenização da entrada, identificando argumentos, aspas, redirecionamentos, pipelines e execução em segundo plano.
 
-**executor.zig:** executa comandos externos, gerencia processos filhos, realiza redirecionamentos e conecta processos por pipes.
+**executor.zig:** executa comandos externos, gerencia processos filhos, redirecionamentos de arquivos e comunicação por pipes.
 
 **test_executor.zig:** contém um programa de teste para execução de comandos externos.
 
@@ -76,7 +89,7 @@ O shell pode ser encerrado utilizando `exit` ou `Ctrl+D`.
 
 Permite executar programas disponíveis no Linux, criando processos filhos.
 
-Exemplo:
+Exemplos:
 
 ```bash
 /bin/ls
@@ -86,35 +99,25 @@ Exemplo:
 
 ### 4.4. Redirecionamento de arquivos
 
-Operadores suportados:
-
 | Operador | Função |
 |---|---|
 | `>` | Redireciona a saída padrão |
-| `2>` | Redireciona a saída de erro |
+| `2>` | Redireciona a saída de erros |
 | `<` | Redireciona a entrada padrão |
-
-Exemplos:
-
-```bash
-/bin/echo Teste > saida.txt
-/bin/ls /inexistente 2> erros.log
-/bin/grep Teste < saida.txt
-```
 
 ### 4.5. Execução em segundo plano
 
-Utiliza o operador `&` no final do comando.
+O operador `&` permite executar processos sem bloquear imediatamente o shell.
+
+Exemplo:
 
 ```bash
 /bin/sleep 5 &
 ```
 
-O shell inicia o processo sem aguardar sua finalização e retorna ao prompt.
-
 ### 4.6. Pipelines
 
-Permite conectar a saída de um processo à entrada de outro usando `|`.
+O operador `|` permite conectar a saída padrão de um processo à entrada padrão de outro.
 
 Exemplo:
 
@@ -124,7 +127,7 @@ Exemplo:
 
 ### 4.7. Argumentos entre aspas
 
-O parser suporta argumentos totalmente delimitados por aspas simples ou duplas.
+O parser reconhece argumentos totalmente delimitados por aspas simples ou duplas.
 
 Exemplos:
 
@@ -133,24 +136,18 @@ Exemplos:
 /bin/printf 'Linha 1\nLinha 2\n'
 ```
 
-## 5. Compilação
+## 5. Compilação e execução
 
 ### Pré-requisitos
 
-- Linux
-- Zig 0.16.0
-- Biblioteca C disponível para vinculação
+- Sistema operacional Linux.
+- Compilador Zig 0.16.0.
+- Biblioteca C disponível para vinculação.
 
-Verifique o compilador:
+Verifique a versão do compilador:
 
 ```bash
 zig version
-```
-
-Resultado utilizado durante o desenvolvimento:
-
-```text
-0.16.0
 ```
 
 ### Compilar o projeto
@@ -166,17 +163,23 @@ zig build-exe -lc \
   -femit-bin=zigsh
 ```
 
-### Executar
+### Executar o shell
 
 ```bash
 ./zigsh
 ```
 
-## 6. Testes e validação
+## 6. Testes e evidências de execução
 
-Os seguintes testes funcionais foram realizados em ambiente Ubuntu com Zig 0.16.0.
+Os testes foram realizados em ambiente Ubuntu 26.04.1 LTS utilizando Zig 0.16.0.
+
+As capturas de tela apresentam os comandos executados e seus respectivos resultados no terminal Linux.
 
 ### Teste A — Comandos internos
+
+**Objetivo:** verificar o funcionamento dos comandos `pwd`, `cd`, `help` e `exit`, incluindo a atualização do diretório exibido no prompt.
+
+**Comandos utilizados:**
 
 ```bash
 pwd
@@ -186,80 +189,121 @@ help
 exit 0
 ```
 
-**Resultado:** os comandos internos foram executados corretamente e o diretório exibido pelo prompt foi atualizado.
+**Evidência da execução:**
 
-**Situação:** aprovado.
+![Teste A - Comandos internos](evidencias/teste-a.png)
 
-### Teste B — Redirecionamento de saída
+**Resultado:** Aprovado. Os comandos internos foram executados corretamente, com atualização do diretório de trabalho.
+
+---
+
+### Teste B — Redirecionamento de saída (`>`)
+
+**Objetivo:** verificar a criação de um arquivo por meio do redirecionamento da saída padrão de um comando externo.
+
+**Comandos utilizados:**
 
 ```bash
 /bin/echo "Teste de criacao de arquivo pelo shell zigsh" > saida.txt
 /bin/cat saida.txt
 ```
 
-**Resultado esperado e observado:**
+**Evidência da execução:**
 
-```text
-Teste de criacao de arquivo pelo shell zigsh
-```
+![Teste B - Redirecionamento de saida](evidencias/teste-b.png)
 
-**Situação:** aprovado.
+**Resultado:** Aprovado. O arquivo foi criado e o conteúdo pôde ser consultado utilizando o comando `cat`.
 
-### Teste C — Redirecionamento de erro
+---
+
+### Teste C — Redirecionamento de erros (`2>`)
+
+**Objetivo:** verificar se as mensagens de erro de um processo podem ser redirecionadas para um arquivo.
+
+**Comandos utilizados:**
 
 ```bash
 /bin/ls /caminho_inexistente 2> erros.log
 /bin/cat erros.log
 ```
 
-**Resultado:** o erro do comando foi registrado em `erros.log` e pôde ser consultado com `cat`.
+**Evidência da execução:**
 
-**Situação:** aprovado.
+![Teste C - Redirecionamento de erros](evidencias/teste-c.png)
 
-### Teste D — Redirecionamento de entrada
+**Resultado:** Aprovado. A mensagem de erro foi registrada no arquivo `erros.log` e exibida posteriormente.
+
+---
+
+### Teste D — Redirecionamento de entrada (`<`)
+
+**Objetivo:** verificar a utilização de um arquivo como entrada padrão de um processo.
+
+**Comando utilizado:**
 
 ```bash
 /bin/grep Teste < saida.txt
 ```
 
-**Resultado:** o comando leu o arquivo de entrada e encontrou o texto esperado.
+**Evidência da execução:**
 
-**Situação:** aprovado.
+![Teste D - Redirecionamento de entrada](evidencias/teste-d.png)
 
-### Teste E — Execução em segundo plano
+**Resultado:** Aprovado. O comando `grep` realizou a leitura do arquivo e encontrou o conteúdo esperado.
+
+---
+
+### Teste E — Execução em segundo plano (`&`)
+
+**Objetivo:** verificar se o shell inicia um processo em segundo plano e retorna imediatamente ao prompt, permitindo a execução de novos comandos.
+
+**Comandos utilizados:**
 
 ```bash
 /bin/sleep 5 &
 pwd
 ```
 
-**Resultado observado:**
+**Evidência da execução:**
 
-```text
-[Processo disparado em segundo plano]
-```
+![Teste E - Execucao em segundo plano](evidencias/teste-e.png)
 
-O prompt retornou sem aguardar os cinco segundos, permitindo executar `pwd`.
+**Resultado:** Aprovado. O processo foi iniciado em segundo plano, a mensagem de confirmação foi exibida e o shell continuou aceitando comandos.
 
-**Situação:** aprovado.
+---
 
-### Teste F — Pipeline
+### Teste F — Encadeamento de processos por pipeline (`|`)
+
+**Objetivo:** verificar a comunicação entre dois processos, utilizando a saída padrão do primeiro como entrada padrão do segundo.
+
+**Comando utilizado:**
 
 ```bash
 /bin/printf 'Linha 1\nLinha 2\nAlvo 123\n' | /bin/grep Alvo
 ```
 
-**Resultado esperado e observado:**
+**Evidência da execução:**
 
-```text
-Alvo 123
-```
+![Teste F - Pipeline](evidencias/teste-f.png)
 
-**Situação:** aprovado.
+**Resultado:** Aprovado. O pipeline conectou os processos corretamente e o comando `grep` exibiu a linha `Alvo 123`.
 
-## 7. Testes unitários
+---
 
-O arquivo `src/parser.zig` contém testes unitários para validar a interpretação de comandos.
+### Resumo dos testes funcionais
+
+| Teste | Funcionalidade | Resultado |
+|---|---|---|
+| A | Comandos internos | Aprovado |
+| B | Redirecionamento de saída (`>`) | Aprovado |
+| C | Redirecionamento de erro (`2>`) | Aprovado |
+| D | Redirecionamento de entrada (`<`) | Aprovado |
+| E | Execução em segundo plano (`&`) | Aprovado |
+| F | Pipeline (`\|`) | Aprovado |
+
+## 7. Testes unitários do parser
+
+O módulo `parser.zig` possui testes unitários para verificar a interpretação dos comandos e operadores.
 
 Para executar:
 
@@ -267,43 +311,32 @@ Para executar:
 zig test src/parser.zig
 ```
 
-Resultado obtido:
+**Resultado obtido:**
 
 ```text
 All 14 tests passed.
 ```
 
-Os testes incluem:
+Os testes contemplam comandos e argumentos, redirecionamentos, background, pipelines, operadores sem espaços, rejeição de entradas inválidas e argumentos delimitados por aspas.
 
-- Comandos e argumentos.
-- Redirecionamento de entrada.
-- Redirecionamento de saída.
-- Redirecionamento de erros.
-- Execução em segundo plano.
-- Pipelines.
-- Redirecionamentos combinados.
-- Operadores sem espaços.
-- Rejeição de comandos inválidos.
-- Argumentos entre aspas simples.
-- Argumentos entre aspas duplas.
+### Evidência dos testes unitários
+
+![Testes unitarios do parser](evidencias/teste-parser.png)
+
+**Resultado:** 14 testes aprovados.
 
 ## 8. Limitações e melhorias futuras
 
-A implementação atende aos cenários básicos testados, mas pode ser ampliada com:
+Embora os cenários principais tenham sido validados, algumas funcionalidades podem ser aprimoradas:
 
-- Suporte a aspas misturadas dentro de um mesmo argumento.
-- Tratamento mais completo de caracteres de escape.
+- Suporte avançado a aspas e caracteres de escape.
 - Histórico de comandos.
-- Gerenciamento avançado de tarefas em segundo plano.
-- Tratamento de sinais e interrupções.
-- Testes de integração automatizados.
-- Melhor tratamento de erros em pipelines.
+- Gerenciamento completo de processos em segundo plano.
+- Melhor tratamento de erros e sinais.
+- Testes automatizados de integração.
 
 ## 9. Conclusão
 
-O projeto permitiu aplicar conceitos fundamentais de Sistemas Operacionais utilizando Zig.
+O desenvolvimento do `zigsh` permitiu aplicar conceitos fundamentais de Sistemas Operacionais, especialmente criação e gerenciamento de processos, concorrência, redirecionamento de arquivos e comunicação entre processos.
 
-Foram implementadas e testadas funcionalidades de interpretação de comandos, criação de processos, execução concorrente, redirecionamento de arquivos e comunicação entre processos.
-
-Os seis testes funcionais definidos no enunciado foram executados com sucesso, assim como os 14 testes unitários do parser.
-
+O projeto foi compilado utilizando Zig 0.16.0 no Linux, com os seis testes funcionais realizados com sucesso e 14 testes unitários aprovados.
