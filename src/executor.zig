@@ -151,6 +151,10 @@ children[index] = child;
     // Todos os processos já foram iniciados.
     // Não aguarda processos em segundo plano.
     if (parsed.background) {
+        std.debug.print(
+        "[Processo disparado em segundo plano]\n",
+        .{},
+        );
         reapBackground();
         return;
     }

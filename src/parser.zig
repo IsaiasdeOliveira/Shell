@@ -6,6 +6,7 @@ const MAX_COMMANDS = 16;
 const MAX_ARGS = 32;
 
 pub const ParseError = error{
+    UnclosedQuote,
     TooManyTokens,
     TooManyCommands,
     TooManyArguments,
@@ -64,7 +65,7 @@ fn isWhitespace(c: u8) bool {
     return c == ' ' or c == '\t' or c == '\n' or c == '\r';
 }
 
-// Separa palavras e operadores, mesmo sem espaços entre eles.
+
 fn tokenize(line: []const u8) ParseError!TokenList {
     var tokens = TokenList{};
     var i: usize = 0;
@@ -75,7 +76,9 @@ fn tokenize(line: []const u8) ParseError!TokenList {
             continue;
         }
 
-        if (i + 1 < line.len and line[i] == '2' and line[i + 1] == '>') {
+        if (i + 1 < line.len and
+            line[i] == '2' and line[i + 1] == '>')
+        {
             try tokens.add(.{ .kind = .error_output });
             i += 2;
             continue;
@@ -95,6 +98,30 @@ fn tokenize(line: []const u8) ParseError!TokenList {
             continue;
         }
 
+        // Argumento inteiramente entre aspas.
+        if (line[i] == '"' or line[i] == '\'') {
+            const quote = line[i];
+            i += 1;
+            const start = i;
+
+            while (i < line.len and line[i] != quote) {
+                i += 1;
+            }
+
+            if (i == line.len) {
+                return error.UnclosedQuote;
+            }
+
+            try tokens.add(.{
+                .kind = .word,
+                .text = line[start..i],
+            });
+
+            i += 1;
+            continue;
+        }
+
+        // Argumento sem aspas.
         const start = i;
 
         while (i < line.len and
@@ -102,17 +129,18 @@ fn tokenize(line: []const u8) ParseError!TokenList {
             line[i] != '>' and
             line[i] != '<' and
             line[i] != '|' and
-            line[i] != '&')
+            line[i] != '&' and
+            line[i] != '"' and
+            line[i] != '\'')
         {
-            if (line[i] == '2' and i + 1 < line.len and line[i + 1] == '>') {
+            if (line[i] == '2' and
+                i + 1 < line.len and
+                line[i + 1] == '>')
+            {
                 break;
             }
 
             i += 1;
-        }
-
-        if (i == start) {
-            return error.MissingCommand;
         }
 
         try tokens.add(.{
@@ -123,6 +151,7 @@ fn tokenize(line: []const u8) ParseError!TokenList {
 
     return tokens;
 }
+
 
 pub fn parse(line: []const u8) ParseError!ParsedLine {
     const tokens = try tokenize(line);
@@ -328,5 +357,38 @@ test "rejeita comando vazio antes do pipeline" {
     try std.testing.expectError(
         error.EmptyPipeline,
         parse("| grep txt"),
+    );
+}
+
+
+test "interpreta argumento com aspas duplas" {
+    const parsed = try parse(
+        "/bin/echo \"Teste de criacao de arquivo\" > saida.txt",
+    );
+
+    try std.testing.expectEqual(
+        @as(usize, 2),
+        parsed.commands[0].arg_count,
+    );
+
+    try std.testing.expectEqualStrings(
+        "Teste de criacao de arquivo",
+        parsed.commands[0].args[1],
+    );
+}
+
+test "interpreta argumento com aspas simples" {
+    const parsed = try parse(
+        "/bin/printf 'Linha 1\\nLinha 2\\nAlvo 123\\n' | /bin/grep Alvo",
+    );
+
+    try std.testing.expectEqual(
+        @as(usize, 2),
+        parsed.command_count,
+    );
+
+    try std.testing.expectEqualStrings(
+        "Linha 1\\nLinha 2\\nAlvo 123\\n",
+        parsed.commands[0].args[1],
     );
 }
