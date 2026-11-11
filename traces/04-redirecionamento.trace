@@ -1,0 +1,142 @@
+2665  execve("../zigsh", ["../zigsh"], 0x7fff1e7324a8 /* 17 vars */) = 0
+2665  arch_prctl(ARCH_SET_FS, 0x7fc012519b28) = 0
+2665  set_tid_address(0x7fc012519f90)   = 2665
+2665  brk(NULL)                         = 0x9023000
+2665  brk(0x9025000)                    = 0x9025000
+2665  mmap(0x9023000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x9023000
+2665  mmap(NULL, 262436, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc01242a000
+2665  mprotect(0x7fc012516000, 4096, PROT_READ) = 0
+2665  arch_prctl(ARCH_SET_FS, 0x7fc01246a068) = 0
+2665  set_tid_address(0x7fc012519f90)   = 2665
+2665  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+2665  prlimit64(0, RLIMIT_STACK, {rlim_cur=16384*1024, rlim_max=RLIM64_INFINITY}, NULL) = 0
+2665  sigaltstack({ss_sp=0x7fc01242a04a, ss_flags=0, ss_size=262144}, NULL) = 0
+2665  rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+2665  rt_sigaction(SIGSEGV, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fc0124d288b}, NULL, 8) = 0
+2665  rt_sigaction(SIGILL, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fc0124d288b}, NULL, 8) = 0
+2665  rt_sigaction(SIGBUS, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fc0124d288b}, NULL, 8) = 0
+2665  rt_sigaction(SIGFPE, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fc0124d288b}, NULL, 8) = 0
+2665  sched_getaffinity(0, 128, [0 1 2]) = 32
+2665  rt_sigaction(SIGIO, {sa_handler=0x11f5710, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fc0124d288b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2665  rt_sigaction(SIGPIPE, {sa_handler=0x11f5710, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fc0124d288b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2665  mmap(NULL, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc0123eb000
+2665  munmap(0x7fc0123eb000, 86016)     = 0
+2665  munmap(0x7fc012420000, 40960)     = 0
+2665  mmap(0x7fc0123ff000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc0123ff000
+2665  mmap(0x7fc0123fc000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc0123fc000
+2665  mmap(0x7fc012163000, 2723840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc012163000
+2665  mmap(0x7fc012121000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc012121000
+2665  munmap(0x7fc012121000, 126976)    = 0
+2665  mmap(0x7fc012101000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc012101000
+2665  munmap(0x7fc012101000, 126976)    = 0
+2665  mmap(0x7fc0120e1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc0120e1000
+2665  munmap(0x7fc0120e1000, 126976)    = 0
+2665  mmap(0x7fc0120c1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc0120c1000
+2665  munmap(0x7fc0120c1000, 126976)    = 0
+2665  mmap(0x7fc0120a1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc0120a1000
+2665  munmap(0x7fc0120a1000, 126976)    = 0
+2665  mmap(0x7fc012081000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc012081000
+2665  munmap(0x7fc012081000, 126976)    = 0
+2665  mmap(0x7fc012061000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc012061000
+2665  munmap(0x7fc012061000, 126976)    = 0
+2665  munmap(0x7fc012140000, 131072)    = 0
+2665  write(1, "Bem-vindo ao zigsh!\n", 20) = 20
+2665  wait4(-1, 0x7ffe44bc8b08, WNOHANG, NULL) = -1 ECHILD (No child process)
+2665  getcwd("/home/isaias/Shell/testes-strace", 4096) = 33
+2665  write(1, "zigsh [", 7)            = 7
+2665  write(1, "/home/isaias/Shell/testes-strace", 32) = 32
+2665  write(1, "]>", 2)                 = 2
+2665  read(0, "/", 1)                   = 1
+2665  read(0, "b", 1)                   = 1
+2665  read(0, "i", 1)                   = 1
+2665  read(0, "n", 1)                   = 1
+2665  read(0, "/", 1)                   = 1
+2665  read(0, "e", 1)                   = 1
+2665  read(0, "c", 1)                   = 1
+2665  read(0, "h", 1)                   = 1
+2665  read(0, "o", 1)                   = 1
+2665  read(0, " ", 1)                   = 1
+2665  read(0, "o", 1)                   = 1
+2665  read(0, "l", 1)                   = 1
+2665  read(0, "a", 1)                   = 1
+2665  read(0, " ", 1)                   = 1
+2665  read(0, ">", 1)                   = 1
+2665  read(0, " ", 1)                   = 1
+2665  read(0, "s", 1)                   = 1
+2665  read(0, "a", 1)                   = 1
+2665  read(0, "i", 1)                   = 1
+2665  read(0, "d", 1)                   = 1
+2665  read(0, "a", 1)                   = 1
+2665  read(0, ".", 1)                   = 1
+2665  read(0, "t", 1)                   = 1
+2665  read(0, "x", 1)                   = 1
+2665  read(0, "t", 1)                   = 1
+2665  read(0, "\n", 1)                  = 1
+2665  wait4(-1, 0x7ffe44bbfb48, WNOHANG, NULL) = -1 ECHILD (No child process)
+2665  openat(AT_FDCWD, "saida.txt", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE|O_CLOEXEC, 0666) = 3
+2665  mmap(0x7fc012041000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fc012041000
+2665  munmap(0x7fc012041000, 126976)    = 0
+2665  pipe2([4, 5], O_CLOEXEC)          = 0
+2665  rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1 RT_2], [], 8) = 0
+2665  rt_sigprocmask(SIG_BLOCK, ~[], ~[KILL STOP RTMIN RT_1 RT_2], 8) = 0
+2665  fork()                            = 2666
+2666  set_tid_address(0x7fc012519f90 <unfinished ...>
+2665  rt_sigprocmask(SIG_SETMASK, ~[KILL STOP RTMIN RT_1 RT_2] <unfinished ...>
+2666  <... set_tid_address resumed>)    = 2666
+2665  <... rt_sigprocmask resumed>, NULL, 8) = 0
+2665  rt_sigprocmask(SIG_SETMASK, [] <unfinished ...>
+2666  rt_sigprocmask(SIG_SETMASK, ~[KILL STOP RTMIN RT_1 RT_2] <unfinished ...>
+2665  <... rt_sigprocmask resumed>, NULL, 8) = 0
+2665  close(5 <unfinished ...>
+2666  <... rt_sigprocmask resumed>, NULL, 8) = 0
+2665  <... close resumed>)              = 0
+2666  rt_sigprocmask(SIG_SETMASK, [] <unfinished ...>
+2665  munmap(0x7fc012060000, 131072 <unfinished ...>
+2666  <... rt_sigprocmask resumed>, NULL, 8) = 0
+2665  <... munmap resumed>)             = 0
+2666  dup2(3, 1 <unfinished ...>
+2665  read(4 <unfinished ...>
+2666  <... dup2 resumed>)               = 1
+2666  execve("/bin/echo", ["/bin/echo", "ola"], 0x7fc012060018 /* 17 vars */ <unfinished ...>
+2665  <... read resumed>, "", 8)        = 0
+2665  close(4)                          = 0
+2666  <... execve resumed>)             = 0
+2665  close(3)                          = 0
+2666  arch_prctl(ARCH_SET_FS, 0x7f3aed77db28 <unfinished ...>
+2665  wait4(2666 <unfinished ...>
+2666  <... arch_prctl resumed>)         = 0
+2666  set_tid_address(0x7f3aed77df90)   = 2666
+2666  brk(NULL)                         = 0x562a09d0f000
+2666  brk(0x562a09d11000)               = 0x562a09d11000
+2666  mmap(0x562a09d0f000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x562a09d0f000
+2666  mprotect(0x7f3aed77a000, 4096, PROT_READ) = 0
+2666  mprotect(0x5629f987a000, 16384, PROT_READ) = 0
+2666  getuid()                          = 1000
+2666  getgid()                          = 1000
+2666  rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1 RT_2], [], 8) = 0
+2666  rt_sigprocmask(SIG_BLOCK, ~[], NULL, 8) = 0
+2666  setgid(1000)                      = 0
+2666  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+2666  rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1 RT_2], [], 8) = 0
+2666  rt_sigprocmask(SIG_BLOCK, ~[], NULL, 8) = 0
+2666  setuid(1000)                      = 0
+2666  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+2666  write(1, "ola\n", 4)              = 4
+2666  exit_group(0)                     = ?
+2666  +++ exited with 0 +++
+2665  <... wait4 resumed>, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 2666
+2665  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2666, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2665  wait4(-1, 0x7ffe44bbfb48, WNOHANG, NULL) = -1 ECHILD (No child process)
+2665  wait4(-1, 0x7ffe44bc8b08, WNOHANG, NULL) = -1 ECHILD (No child process)
+2665  getcwd("/home/isaias/Shell/testes-strace", 4096) = 33
+2665  write(1, "zigsh [", 7)            = 7
+2665  write(1, "/home/isaias/Shell/testes-strace", 32) = 32
+2665  write(1, "]>", 2)                 = 2
+2665  read(0, "e", 1)                   = 1
+2665  read(0, "x", 1)                   = 1
+2665  read(0, "i", 1)                   = 1
+2665  read(0, "t", 1)                   = 1
+2665  read(0, "\n", 1)                  = 1
+2665  write(1, "Encerrando zigsh.\n", 18) = 18
+2665  exit_group(0)                     = ?
+2665  +++ exited with 0 +++
