@@ -1,0 +1,62 @@
+2682  execve("../zigsh", ["../zigsh"], 0x7ffcc6321218 /* 17 vars */) = 0
+2682  arch_prctl(ARCH_SET_FS, 0x7fcf4ed8db28) = 0
+2682  set_tid_address(0x7fcf4ed8df90)   = 2682
+2682  brk(NULL)                         = 0x1edff000
+2682  brk(0x1ee01000)                   = 0x1ee01000
+2682  mmap(0x1edff000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x1edff000
+2682  mmap(NULL, 262436, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4ec9e000
+2682  mprotect(0x7fcf4ed8a000, 4096, PROT_READ) = 0
+2682  arch_prctl(ARCH_SET_FS, 0x7fcf4ecde068) = 0
+2682  set_tid_address(0x7fcf4ed8df90)   = 2682
+2682  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+2682  prlimit64(0, RLIMIT_STACK, {rlim_cur=16384*1024, rlim_max=RLIM64_INFINITY}, NULL) = 0
+2682  sigaltstack({ss_sp=0x7fcf4ec9e04a, ss_flags=0, ss_size=262144}, NULL) = 0
+2682  rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+2682  rt_sigaction(SIGSEGV, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fcf4ed4688b}, NULL, 8) = 0
+2682  rt_sigaction(SIGILL, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fcf4ed4688b}, NULL, 8) = 0
+2682  rt_sigaction(SIGBUS, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fcf4ed4688b}, NULL, 8) = 0
+2682  rt_sigaction(SIGFPE, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7fcf4ed4688b}, NULL, 8) = 0
+2682  sched_getaffinity(0, 128, [0 1 2]) = 32
+2682  rt_sigaction(SIGIO, {sa_handler=0x11f5710, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fcf4ed4688b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2682  rt_sigaction(SIGPIPE, {sa_handler=0x11f5710, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fcf4ed4688b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2682  mmap(NULL, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4ec5f000
+2682  munmap(0x7fcf4ec5f000, 4096)      = 0
+2682  munmap(0x7fcf4ec80000, 122880)    = 0
+2682  mmap(0x7fcf4ec5f000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4ec5f000
+2682  mmap(0x7fcf4ec5c000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4ec5c000
+2682  mmap(0x7fcf4e9c3000, 2723840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e9c3000
+2682  mmap(0x7fcf4e981000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e981000
+2682  munmap(0x7fcf4e981000, 126976)    = 0
+2682  mmap(0x7fcf4e961000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e961000
+2682  munmap(0x7fcf4e961000, 126976)    = 0
+2682  mmap(0x7fcf4e941000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e941000
+2682  munmap(0x7fcf4e941000, 126976)    = 0
+2682  mmap(0x7fcf4e921000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e921000
+2682  munmap(0x7fcf4e921000, 126976)    = 0
+2682  mmap(0x7fcf4e901000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e901000
+2682  munmap(0x7fcf4e901000, 126976)    = 0
+2682  mmap(0x7fcf4e8e1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e8e1000
+2682  munmap(0x7fcf4e8e1000, 126976)    = 0
+2682  mmap(0x7fcf4e8c1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcf4e8c1000
+2682  munmap(0x7fcf4e8c1000, 126976)    = 0
+2682  munmap(0x7fcf4e9a0000, 131072)    = 0
+2682  write(1, "Bem-vindo ao zigsh!\n", 20) = 20
+2682  wait4(-1, 0x7ffcb455e438, WNOHANG, NULL) = -1 ECHILD (No child process)
+2682  getcwd("/home/isaias/Shell/testes-strace", 4096) = 33
+2682  write(1, "zigsh [", 7)            = 7
+2682  write(1, "/home/isaias/Shell/testes-strace", 32) = 32
+2682  write(1, "]>", 2)                 = 2
+2682  read(0, "\n", 1)                  = 1
+2682  wait4(-1, 0x7ffcb455e438, WNOHANG, NULL) = -1 ECHILD (No child process)
+2682  getcwd("/home/isaias/Shell/testes-strace", 4096) = 33
+2682  write(1, "zigsh [", 7)            = 7
+2682  write(1, "/home/isaias/Shell/testes-strace", 32) = 32
+2682  write(1, "]>", 2)                 = 2
+2682  read(0, "e", 1)                   = 1
+2682  read(0, "x", 1)                   = 1
+2682  read(0, "i", 1)                   = 1
+2682  read(0, "t", 1)                   = 1
+2682  read(0, "\n", 1)                  = 1
+2682  write(1, "Encerrando zigsh.\n", 18) = 18
+2682  exit_group(0)                     = ?
+2682  +++ exited with 0 +++
