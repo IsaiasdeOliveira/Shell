@@ -1,0 +1,61 @@
+2674  execve("../zigsh", ["../zigsh"], 0x7fffcf6d22a8 /* 17 vars */) = 0
+2674  arch_prctl(ARCH_SET_FS, 0x7f9960d8cb28) = 0
+2674  set_tid_address(0x7f9960d8cf90)   = 2674
+2674  brk(NULL)                         = 0x1719c000
+2674  brk(0x1719e000)                   = 0x1719e000
+2674  mmap(0x1719c000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x1719c000
+2674  mmap(NULL, 262436, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960c9d000
+2674  mprotect(0x7f9960d89000, 4096, PROT_READ) = 0
+2674  arch_prctl(ARCH_SET_FS, 0x7f9960cdd068) = 0
+2674  set_tid_address(0x7f9960d8cf90)   = 2674
+2674  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+2674  prlimit64(0, RLIMIT_STACK, {rlim_cur=16384*1024, rlim_max=RLIM64_INFINITY}, NULL) = 0
+2674  sigaltstack({ss_sp=0x7f9960c9d04a, ss_flags=0, ss_size=262144}, NULL) = 0
+2674  rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+2674  rt_sigaction(SIGSEGV, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f9960d4588b}, NULL, 8) = 0
+2674  rt_sigaction(SIGILL, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f9960d4588b}, NULL, 8) = 0
+2674  rt_sigaction(SIGBUS, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f9960d4588b}, NULL, 8) = 0
+2674  rt_sigaction(SIGFPE, {sa_handler=0x12037e0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f9960d4588b}, NULL, 8) = 0
+2674  sched_getaffinity(0, 128, [0 1 2]) = 32
+2674  rt_sigaction(SIGIO, {sa_handler=0x11f5710, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f9960d4588b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2674  rt_sigaction(SIGPIPE, {sa_handler=0x11f5710, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f9960d4588b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2674  mmap(NULL, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960c5e000
+2674  munmap(0x7f9960c5e000, 8192)      = 0
+2674  munmap(0x7f9960c80000, 118784)    = 0
+2674  mmap(0x7f9960c5f000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960c5f000
+2674  mmap(0x7f9960c5c000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960c5c000
+2674  mmap(0x7f99609c3000, 2723840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f99609c3000
+2674  mmap(0x7f9960981000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960981000
+2674  munmap(0x7f9960981000, 126976)    = 0
+2674  mmap(0x7f9960961000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960961000
+2674  munmap(0x7f9960961000, 126976)    = 0
+2674  mmap(0x7f9960941000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960941000
+2674  munmap(0x7f9960941000, 126976)    = 0
+2674  mmap(0x7f9960921000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960921000
+2674  munmap(0x7f9960921000, 126976)    = 0
+2674  mmap(0x7f9960901000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9960901000
+2674  munmap(0x7f9960901000, 126976)    = 0
+2674  mmap(0x7f99608e1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f99608e1000
+2674  munmap(0x7f99608e1000, 126976)    = 0
+2674  mmap(0x7f99608c1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f99608c1000
+2674  munmap(0x7f99608c1000, 126976)    = 0
+2674  munmap(0x7f99609a0000, 131072)    = 0
+2674  write(1, "Bem-vindo ao zigsh!\n", 20) = 20
+2674  wait4(-1, 0x7fffc2be1708, WNOHANG, NULL) = -1 ECHILD (No child process)
+2674  getcwd("/home/isaias/Shell/testes-strace", 4096) = 33
+2674  write(1, "zigsh [", 7)            = 7
+2674  write(1, "/home/isaias/Shell/testes-strace", 32) = 32
+2674  write(1, "]>", 2)                 = 2
+2674  read(0, "", 1)                    = 0
+2674  write(1, "\nEncerrando zigsh.\n", 19) = 19
+2674  munmap(0x7f9960980000, 131072)    = 0
+2674  munmap(0x7f9960c60000, 131072)    = 0
+2674  munmap(0x7f9960920000, 131072)    = 0
+2674  munmap(0x7f9960940000, 131072)    = 0
+2674  munmap(0x7f9960960000, 131072)    = 0
+2674  munmap(0x7f99608e0000, 131072)    = 0
+2674  munmap(0x7f9960900000, 131072)    = 0
+2674  rt_sigaction(SIGIO, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f9960d4588b}, NULL, 8) = 0
+2674  rt_sigaction(SIGPIPE, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f9960d4588b}, NULL, 8) = 0
+2674  exit_group(0)                     = ?
+2674  +++ exited with 0 +++
