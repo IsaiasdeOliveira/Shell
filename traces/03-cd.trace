@@ -1,125 +1,136 @@
-2331  execve("./zigsh", ["./zigsh"], 0x7ffcf8bd18e8 /* 13 vars */) = 0
-2331  arch_prctl(ARCH_SET_FS, 0x7f4d27b8cb28) = 0
-2331  set_tid_address(0x7f4d27b8cf90)   = 2331
-2331  brk(NULL)                         = 0x12d68000
-2331  brk(0x12d6a000)                   = 0x12d6a000
-2331  mmap(0x12d68000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x12d68000
-2331  mmap(NULL, 262436, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27a9d000
-2331  mprotect(0x7f4d27b89000, 4096, PROT_READ) = 0
-2331  arch_prctl(ARCH_SET_FS, 0x7f4d27add068) = 0
-2331  set_tid_address(0x7f4d27b8cf90)   = 2331
-2331  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-2331  prlimit64(0, RLIMIT_STACK, {rlim_cur=16384*1024, rlim_max=RLIM64_INFINITY}, NULL) = 0
-2331  sigaltstack({ss_sp=0x7f4d27a9d04a, ss_flags=0, ss_size=262144}, NULL) = 0
-2331  rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
-2331  rt_sigaction(SIGSEGV, {sa_handler=0x12037f0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f4d27b4588b}, NULL, 8) = 0
-2331  rt_sigaction(SIGILL, {sa_handler=0x12037f0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f4d27b4588b}, NULL, 8) = 0
-2331  rt_sigaction(SIGBUS, {sa_handler=0x12037f0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f4d27b4588b}, NULL, 8) = 0
-2331  rt_sigaction(SIGFPE, {sa_handler=0x12037f0, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f4d27b4588b}, NULL, 8) = 0
-2331  sched_getaffinity(0, 128, [0])    = 32
-2331  rt_sigaction(SIGIO, {sa_handler=0x11f5720, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f4d27b4588b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
-2331  rt_sigaction(SIGPIPE, {sa_handler=0x11f5720, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f4d27b4588b}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
-2331  mmap(NULL, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27a5e000
-2331  munmap(0x7f4d27a5e000, 8192)      = 0
-2331  munmap(0x7f4d27a80000, 118784)    = 0
-2331  mmap(0x7f4d27a5f000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27a5f000
-2331  mmap(0x7f4d27a5c000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27a5c000
-2331  mmap(0x7f4d277c3000, 2723840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d277c3000
-2331  mmap(0x7f4d27781000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27781000
-2331  munmap(0x7f4d27781000, 126976)    = 0
-2331  mmap(0x7f4d27761000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27761000
-2331  munmap(0x7f4d27761000, 126976)    = 0
-2331  mmap(0x7f4d27741000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27741000
-2331  munmap(0x7f4d27741000, 126976)    = 0
-2331  mmap(0x7f4d27721000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27721000
-2331  munmap(0x7f4d27721000, 126976)    = 0
-2331  mmap(0x7f4d27701000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27701000
-2331  munmap(0x7f4d27701000, 126976)    = 0
-2331  mmap(0x7f4d276e1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d276e1000
-2331  munmap(0x7f4d276e1000, 126976)    = 0
-2331  mmap(0x7f4d276c1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d276c1000
-2331  munmap(0x7f4d276c1000, 126976)    = 0
-2331  mmap(0x7f4d276a1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d276a1000
-2331  munmap(0x7f4d276a1000, 126976)    = 0
-2331  munmap(0x7f4d277a0000, 131072)    = 0
-2331  write(1, "Bem-vindo ao zigsh!\n", 20) = 20
-2331  wait4(-1, 0x7ffd3b57ff78, WNOHANG, NULL) = -1 ECHILD (No child process)
-2331  getcwd("/root/Shell", 4096)       = 12
-2331  write(1, "zigsh [", 7)            = 7
-2331  write(1, "/root/Shell", 11)       = 11
-2331  write(1, "]>", 2)                 = 2
-2331  read(0, "c", 1)                   = 1
-2331  read(0, "d", 1)                   = 1
-2331  read(0, " ", 1)                   = 1
-2331  read(0, "/", 1)                   = 1
-2331  read(0, "t", 1)                   = 1
-2331  read(0, "m", 1)                   = 1
-2331  read(0, "p", 1)                   = 1
-2331  read(0, "\n", 1)                  = 1
-2331  chdir("/tmp")                     = 0
-2331  wait4(-1, 0x7ffd3b57ff78, WNOHANG, NULL) = -1 ECHILD (No child process)
-2331  getcwd("/tmp", 4096)              = 5
-2331  write(1, "zigsh [", 7)            = 7
-2331  write(1, "/tmp", 4)               = 4
-2331  write(1, "]>", 2)                 = 2
-2331  read(0, "/", 1)                   = 1
-2331  read(0, "b", 1)                   = 1
-2331  read(0, "i", 1)                   = 1
-2331  read(0, "n", 1)                   = 1
-2331  read(0, "/", 1)                   = 1
-2331  read(0, "p", 1)                   = 1
-2331  read(0, "w", 1)                   = 1
-2331  read(0, "d", 1)                   = 1
-2331  read(0, "\n", 1)                  = 1
-2331  wait4(-1, 0x7ffd3b576fb8, WNOHANG, NULL) = -1 ECHILD (No child process)
-2331  mmap(0x7f4d27681000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4d27681000
-2331  munmap(0x7f4d27681000, 126976)    = 0
-2331  pipe2([3, 4], O_CLOEXEC)          = 0
-2331  rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1 RT_2], [], 8) = 0
-2331  rt_sigprocmask(SIG_BLOCK, ~[], ~[KILL STOP RTMIN RT_1 RT_2], 8) = 0
-2331  fork()                            = 2332
-2332  set_tid_address(0x7f4d27b8cf90 <unfinished ...>
-2331  rt_sigprocmask(SIG_SETMASK, ~[KILL STOP RTMIN RT_1 RT_2], NULL, 8) = 0
-2331  rt_sigprocmask(SIG_SETMASK, [] <unfinished ...>
-2332  <... set_tid_address resumed>)    = 2332
-2331  <... rt_sigprocmask resumed>, NULL, 8) = 0
-2332  rt_sigprocmask(SIG_SETMASK, ~[KILL STOP RTMIN RT_1 RT_2] <unfinished ...>
-2331  close(4)                          = 0
-2331  munmap(0x7f4d276a0000, 131072 <unfinished ...>
-2332  <... rt_sigprocmask resumed>, NULL, 8) = 0
-2332  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
-2332  execve("/bin/pwd", ["/bin/pwd"], 0x7f4d276a0018 /* 13 vars */ <unfinished ...>
-2331  <... munmap resumed>)             = 0
-2331  read(3, "", 8)                    = 0
-2331  close(3)                          = 0
-2331  wait4(2332 <unfinished ...>
-2332  <... execve resumed>)             = 0
-2332  arch_prctl(ARCH_SET_FS, 0x7f8fb82bbb28) = 0
-2332  set_tid_address(0x7f8fb82bbf90)   = 2332
-2332  brk(NULL)                         = 0x563c9f37c000
-2332  brk(0x563c9f37e000)               = 0x563c9f37e000
-2332  mmap(0x563c9f37c000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x563c9f37c000
-2332  mprotect(0x7f8fb82b8000, 4096, PROT_READ) = 0
-2332  mprotect(0x563c9bbf3000, 16384, PROT_READ) = 0
-2332  getuid()                          = 0
-2332  getcwd("/tmp", 192)               = 5
-2332  ioctl(1, TIOCGWINSZ, {ws_row=30, ws_col=120, ws_xpixel=640, ws_ypixel=480}) = 0
-2332  writev(1, [{iov_base="/tmp", iov_len=4}, {iov_base="\n", iov_len=1}], 2) = 5
-2332  exit_group(0)                     = ?
-2332  +++ exited with 0 +++
-2331  <... wait4 resumed>, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 2332
-2331  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2332, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
-2331  wait4(-1, 0x7ffd3b576fb8, WNOHANG, NULL) = -1 ECHILD (No child process)
-2331  wait4(-1, 0x7ffd3b57ff78, WNOHANG, NULL) = -1 ECHILD (No child process)
-2331  getcwd("/tmp", 4096)              = 5
-2331  write(1, "zigsh [", 7)            = 7
-2331  write(1, "/tmp", 4)               = 4
-2331  write(1, "]>", 2)                 = 2
-2331  read(0, "e", 1)                   = 1
-2331  read(0, "x", 1)                   = 1
-2331  read(0, "i", 1)                   = 1
-2331  read(0, "t", 1)                   = 1
-2331  read(0, "\n", 1)                  = 1
-2331  write(1, "Encerrando zigsh.\n", 18) = 18
-2331  exit_group(0)                     = ?
-2331  +++ exited with 0 +++
+2553  execve("./zigsh", ["./zigsh"], 0x7fffef5ee328 /* 19 vars */) = 0
+2553  arch_prctl(ARCH_SET_FS, 0x7f1938582b28) = 0
+2553  set_tid_address(0x7f1938582f90)   = 2553
+2553  brk(NULL)                         = 0x3ad77000
+2553  brk(0x3ad79000)                   = 0x3ad79000
+2553  mmap(0x3ad77000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3ad77000
+2553  mmap(NULL, 262436, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938493000
+2553  mprotect(0x7f193857f000, 4096, PROT_READ) = 0
+2553  arch_prctl(ARCH_SET_FS, 0x7f19384d3068) = 0
+2553  set_tid_address(0x7f1938582f90)   = 2553
+2553  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+2553  prlimit64(0, RLIMIT_STACK, {rlim_cur=16384*1024, rlim_max=RLIM64_INFINITY}, NULL) = 0
+2553  sigaltstack({ss_sp=0x7f193849304a, ss_flags=0, ss_size=262144}, NULL) = 0
+2553  rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+2553  rt_sigaction(SIGSEGV, {sa_handler=0x11eeb40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f193853b8b4}, NULL, 8) = 0
+2553  rt_sigaction(SIGILL, {sa_handler=0x11eeb40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f193853b8b4}, NULL, 8) = 0
+2553  rt_sigaction(SIGBUS, {sa_handler=0x11eeb40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f193853b8b4}, NULL, 8) = 0
+2553  rt_sigaction(SIGFPE, {sa_handler=0x11eeb40, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f193853b8b4}, NULL, 8) = 0
+2553  sched_getaffinity(0, 128, [0])    = 32
+2553  rt_sigaction(SIGIO, {sa_handler=0x11e1680, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f193853b8b4}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2553  rt_sigaction(SIGPIPE, {sa_handler=0x11e1680, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f193853b8b4}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+2553  mmap(NULL, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938454000
+2553  munmap(0x7f1938454000, 49152)     = 0
+2553  munmap(0x7f1938480000, 77824)     = 0
+2553  mmap(0x7f193845f000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f193845f000
+2553  mmap(0x7f193845c000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f193845c000
+2553  mmap(0x7f19381c3000, 2723840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f19381c3000
+2553  mmap(0x7f1938181000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938181000
+2553  munmap(0x7f1938181000, 126976)    = 0
+2553  mmap(0x7f1938161000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938161000
+2553  munmap(0x7f1938161000, 126976)    = 0
+2553  mmap(0x7f1938141000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938141000
+2553  munmap(0x7f1938141000, 126976)    = 0
+2553  mmap(0x7f1938121000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938121000
+2553  munmap(0x7f1938121000, 126976)    = 0
+2553  mmap(0x7f1938101000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938101000
+2553  munmap(0x7f1938101000, 126976)    = 0
+2553  mmap(0x7f19380e1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f19380e1000
+2553  munmap(0x7f19380e1000, 126976)    = 0
+2553  mmap(0x7f19380c1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f19380c1000
+2553  munmap(0x7f19380c1000, 126976)    = 0
+2553  munmap(0x7f19381a0000, 131072)    = 0
+2553  mmap(0x7f19380a1000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f19380a1000
+2553  munmap(0x7f19380a1000, 126976)    = 0
+2553  write(1, "Bem-vindo ao zigsh!\n", 20) = 20
+2553  wait4(-1, 0x7ffea9fad9b8, WNOHANG, NULL) = -1 ECHILD (No child process)
+2553  getcwd("/home/dBaptista/Shell-strace", 4096) = 29
+2553  write(1, "zigsh [", 7)            = 7
+2553  write(1, "/home/dBaptista/Shell-strace", 28) = 28
+2553  write(1, "]>", 2)                 = 2
+2553  read(0, "c", 1)                   = 1
+2553  read(0, "d", 1)                   = 1
+2553  read(0, " ", 1)                   = 1
+2553  read(0, "/", 1)                   = 1
+2553  read(0, "t", 1)                   = 1
+2553  read(0, "m", 1)                   = 1
+2553  read(0, "p", 1)                   = 1
+2553  read(0, "\n", 1)                  = 1
+2553  chdir("/tmp")                     = 0
+2553  wait4(-1, 0x7ffea9fad9b8, WNOHANG, NULL) = -1 ECHILD (No child process)
+2553  getcwd("/tmp", 4096)              = 5
+2553  write(1, "zigsh [", 7)            = 7
+2553  write(1, "/tmp", 4)               = 4
+2553  write(1, "]>", 2)                 = 2
+2553  read(0, "/", 1)                   = 1
+2553  read(0, "b", 1)                   = 1
+2553  read(0, "i", 1)                   = 1
+2553  read(0, "n", 1)                   = 1
+2553  read(0, "/", 1)                   = 1
+2553  read(0, "p", 1)                   = 1
+2553  read(0, "w", 1)                   = 1
+2553  read(0, "d", 1)                   = 1
+2553  read(0, "\n", 1)                  = 1
+2553  wait4(-1, 0x7ffea9fa49d8, WNOHANG, NULL) = -1 ECHILD (No child process)
+2553  mmap(0x7f1938081000, 258048, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1938081000
+2553  munmap(0x7f1938081000, 126976)    = 0
+2553  pipe2([3, 4], O_CLOEXEC)          = 0
+2553  rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1 RT_2], [], 8) = 0
+2553  rt_sigprocmask(SIG_BLOCK, ~[], ~[KILL STOP RTMIN RT_1 RT_2], 8) = 0
+2553  fork()                            = 2554
+2553  rt_sigprocmask(SIG_SETMASK, ~[KILL STOP RTMIN RT_1 RT_2] <unfinished ...>
+2554  set_tid_address(0x7f1938582f90 <unfinished ...>
+2553  <... rt_sigprocmask resumed>, NULL, 8) = 0
+2553  rt_sigprocmask(SIG_SETMASK, [] <unfinished ...>
+2554  <... set_tid_address resumed>)    = 2554
+2553  <... rt_sigprocmask resumed>, NULL, 8) = 0
+2553  close(4 <unfinished ...>
+2554  rt_sigprocmask(SIG_SETMASK, ~[KILL STOP RTMIN RT_1 RT_2] <unfinished ...>
+2553  <... close resumed>)              = 0
+2553  munmap(0x7f19380a0000, 131072 <unfinished ...>
+2554  <... rt_sigprocmask resumed>, NULL, 8) = 0
+2554  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+2554  execve("/bin/pwd", ["/bin/pwd"], 0x7f19380a0018 /* 19 vars */ <unfinished ...>
+2553  <... munmap resumed>)             = 0
+2553  read(3, "", 8)                    = 0
+2553  close(3)                          = 0
+2553  wait4(2554 <unfinished ...>
+2554  <... execve resumed>)             = 0
+2554  arch_prctl(ARCH_SET_FS, 0x7fb617d95b28) = 0
+2554  set_tid_address(0x7fb617d95f90)   = 2554
+2554  brk(NULL)                         = 0x56236fd0d000
+2554  brk(0x56236fd0f000)               = 0x56236fd0f000
+2554  mmap(0x56236fd0d000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x56236fd0d000
+2554  mprotect(0x7fb617d92000, 4096, PROT_READ) = 0
+2554  mprotect(0x56236bc83000, 16384, PROT_READ) = 0
+2554  getuid()                          = 1000
+2554  getgid()                          = 1000
+2554  rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1 RT_2], [], 8) = 0
+2554  rt_sigprocmask(SIG_BLOCK, ~[], NULL, 8) = 0
+2554  setgid(1000)                      = 0
+2554  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+2554  rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1 RT_2], [], 8) = 0
+2554  rt_sigprocmask(SIG_BLOCK, ~[], NULL, 8) = 0
+2554  setuid(1000)                      = 0
+2554  rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+2554  getcwd("/tmp", 192)               = 5
+2554  ioctl(1, TIOCGWINSZ, {ws_row=30, ws_col=120, ws_xpixel=640, ws_ypixel=480}) = 0
+2554  writev(1, [{iov_base="/tmp", iov_len=4}, {iov_base="\n", iov_len=1}], 2) = 5
+2554  exit_group(0)                     = ?
+2554  +++ exited with 0 +++
+2553  <... wait4 resumed>, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 2554
+2553  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2554, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2553  wait4(-1, 0x7ffea9fa49d8, WNOHANG, NULL) = -1 ECHILD (No child process)
+2553  wait4(-1, 0x7ffea9fad9b8, WNOHANG, NULL) = -1 ECHILD (No child process)
+2553  getcwd("/tmp", 4096)              = 5
+2553  write(1, "zigsh [", 7)            = 7
+2553  write(1, "/tmp", 4)               = 4
+2553  write(1, "]>", 2)                 = 2
+2553  read(0, "e", 1)                   = 1
+2553  read(0, "x", 1)                   = 1
+2553  read(0, "i", 1)                   = 1
+2553  read(0, "t", 1)                   = 1
+2553  read(0, "\n", 1)                  = 1
+2553  write(1, "Encerrando zigsh.\n", 18) = 18
+2553  exit_group(0)                     = ?
+2553  +++ exited with 0 +++
